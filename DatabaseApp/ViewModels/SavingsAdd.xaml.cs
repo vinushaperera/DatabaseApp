@@ -37,6 +37,7 @@ namespace DatabaseApp.ViewModels
                 saName_box.Text = saving.Name;
                 saAmount_box.Text = saving.Goal.ToString();
                 saStarting_box.Text = saving.Initial.ToString();
+                saCreate_btn.Content = "Update"; 
                 update = true;
             }
 

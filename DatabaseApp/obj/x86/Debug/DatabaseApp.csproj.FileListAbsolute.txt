@@ -124,3 +124,11 @@ D:\Coursework\SDGP\DatabaseApp\DatabaseApp\obj\x86\Debug\ViewModels\SavingsIndiv
 D:\Coursework\SDGP\DatabaseApp\DatabaseApp\obj\x86\Debug\ViewModels\SavingsIndividualTrans.g.cs
 D:\Coursework\SDGP\DatabaseApp\DatabaseApp\obj\x86\Debug\ViewModels\SavingsIndividualTrans.xaml
 D:\Coursework\SDGP\DatabaseApp\DatabaseApp\obj\x86\Debug\ViewModels\SavingsIndividualTrans.xbf
+D:\Coursework\SDGP\DatabaseApp\DatabaseApp\obj\x86\Debug\SQLitePCL\layout.resfiles
+D:\Coursework\SDGP\DatabaseApp\DatabaseApp\obj\x86\Debug\SQLitePCL\layout.resfiles.intermediate
+D:\Coursework\SDGP\DatabaseApp\DatabaseApp\obj\x86\Debug\SQLitePCL\Resources.resfiles
+D:\Coursework\SDGP\DatabaseApp\DatabaseApp\obj\x86\Debug\SQLitePCL\Resources.resfiles.intermediate
+D:\Coursework\SDGP\DatabaseApp\DatabaseApp\obj\x86\Debug\SQLitePCL\pri.resfiles
+D:\Coursework\SDGP\DatabaseApp\DatabaseApp\obj\x86\Debug\SQLitePCL\pri.resfiles.intermediate
+D:\Coursework\SDGP\DatabaseApp\DatabaseApp\obj\x86\Debug\SQLitePCL\priconfig.xml
+D:\Coursework\SDGP\DatabaseApp\DatabaseApp\obj\x86\Debug\SQLitePCL\priconfig.xml.intermediate
