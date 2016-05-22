@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="DatabaseApp.ViewModels.SavingsMainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DatabaseApp.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="sMain_label" HorizontalAlignment="Left" Margin="39,26,0,0" TextWrapping="Wrap" Text="Savings" VerticalAlignment="Top" FontSize="33.333"/>
+        <ListView x:Name="listView" ItemClick="OnItemClickHandler" IsItemClickEnabled="True" HorizontalAlignment="Left" Height="483" Margin="10,82,0,0" VerticalAlignment="Top" Width="380" ItemsSource="{Binding}" FontSize="16"/>
+        <Button x:Name="smBack_btn" Content="Back" HorizontalAlignment="Left" Margin="144,568,0,0" VerticalAlignment="Top" Click="smBack_btn_Click"/>
+        <Button x:Name="smNew_btn" Content="New" HorizontalAlignment="Left" Margin="263,22,0,0" VerticalAlignment="Top" Click="smNew_btn_Click"/>
+
+    </Grid>
+</Page>

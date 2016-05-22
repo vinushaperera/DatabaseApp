@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="DatabaseApp.ViewModels.SavingsIndividualTrans"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DatabaseApp.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="indiTransMainLabel" HorizontalAlignment="Left" Margin="17,32,0,0" TextWrapping="Wrap" Text="Transaction Details" VerticalAlignment="Top" FontSize="33.333"/>
+        <TextBlock x:Name="indiTransAmountLabel" HorizontalAlignment="Left" Margin="89,160,0,0" TextWrapping="Wrap" Text="Amount : " VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="indiTransAmountBox" HorizontalAlignment="Left" Margin="196,155,0,0" TextWrapping="Wrap" Text="Rs. 500.00" VerticalAlignment="Top" FontSize="24"/>
+        <TextBlock x:Name="indiTransDateLabel" HorizontalAlignment="Left" Margin="91,208,0,0" TextWrapping="Wrap" Text="Date      : " VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="indiTransDateBox" HorizontalAlignment="Left" Margin="196,206,0,0" TextWrapping="Wrap" Text="2014/01/01" VerticalAlignment="Top" FontSize="24"/>
+        <Button x:ConnectionId='1' x:Name="indiTransBackBtn" Content="Back" HorizontalAlignment="Left" Margin="53,563,0,0" VerticalAlignment="Top"                               />
+        <Button x:ConnectionId='2' x:Name="indiTransDeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="229,563,0,0" VerticalAlignment="Top"                                 />
+
+    </Grid>
+</Page>
+

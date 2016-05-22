@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="DatabaseApp.ViewModels.IndiviualIncExp"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DatabaseApp.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="detailsIncExp_name" HorizontalAlignment="Left" Margin="22,69,0,0" TextWrapping="Wrap" Text="IncExp Name" VerticalAlignment="Top" FontSize="33.333"/>
+        <TextBlock x:Name="detailsIncExp_type" HorizontalAlignment="Left" Margin="22,32,0,0" TextWrapping="Wrap" Text="Income" VerticalAlignment="Top" FontSize="26.667"/>
+        <TextBlock x:Name="detailsAmount" HorizontalAlignment="Left" Margin="135,196,0,0" TextWrapping="Wrap" Text="Rs. 1000" VerticalAlignment="Top" FontSize="24" Width="218"/>
+        <TextBlock x:Name="detailsPerson" HorizontalAlignment="Left" Margin="135,248,0,0" TextWrapping="Wrap" Text="Vinusha" VerticalAlignment="Top" FontSize="24" Width="218"/>
+        <TextBlock x:Name="detailsCategory" HorizontalAlignment="Left" Margin="135,296,0,0" TextWrapping="Wrap" Text="Food" VerticalAlignment="Top" FontSize="24" Width="218"/>
+        <TextBlock x:Name="detailsDesc" HorizontalAlignment="Left" Margin="135,403,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" FontSize="20" Width="218" Height="114"/>
+        <Button x:ConnectionId='1' x:Name="detailsEdit_btn" Content="Edit" HorizontalAlignment="Left" Margin="281,16,0,0" VerticalAlignment="Top"                              />
+        <Button x:ConnectionId='2' x:Name="detailsDelete_btn" Content="Delete" HorizontalAlignment="Left" Margin="65,565,0,0" VerticalAlignment="Top"                                />
+        <Button x:ConnectionId='3' x:Name="detailsBack_btn" Content="Back" HorizontalAlignment="Left" Margin="223,565,0,0" VerticalAlignment="Top"                              />
+        <TextBlock x:Name="detailsDate" HorizontalAlignment="Left" Margin="135,346,0,0" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" FontSize="24"/>
+
+    </Grid>
+</Page>
+

@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="DatabaseApp.ViewModels.IncExpTransactions"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DatabaseApp.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="ieTransactions_header" HorizontalAlignment="Left" Margin="20,27,0,0" TextWrapping="Wrap" Text="Transactions" VerticalAlignment="Top" FontSize="33.333"/>
+        <ListView x:Name="ieListView" ItemClick="OnItemClickHandlerIE" IsItemClickEnabled="True" ItemsSource="{Binding}"  HorizontalAlignment="Left" Height="476" Margin="10,84,0,0" VerticalAlignment="Top" Width="380"/>
+        <Button x:Name="ieTransactions_back_btn" Content="Back" HorizontalAlignment="Left" Margin="144,576,0,0" VerticalAlignment="Top" Click="ieTransactions_back_btn_Click"/>
+
+    </Grid>
+</Page>

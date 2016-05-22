@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="DatabaseApp.ViewModels.DebtAddView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DatabaseApp.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="dAddDebt_label" HorizontalAlignment="Left" Margin="24,30,0,0" TextWrapping="Wrap" Text="Add Debt / Loan" VerticalAlignment="Top" FontSize="33.333"/>
+        <TextBox x:Name="dAmount_box" HorizontalAlignment="Left" Margin="41,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="316" PlaceholderText="Amount" InputScope="Number"/>
+        <TextBox x:Name="dDesc_box" HorizontalAlignment="Left" Margin="41,185,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="316" PlaceholderText="Note"/>
+        <TextBox x:Name="dPerson_box" HorizontalAlignment="Left" Margin="41,255,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="316" PlaceholderText="Person"/>
+        <DatePicker x:Name="dDate_box" HorizontalAlignment="Left" Margin="41,369,0,0" VerticalAlignment="Top" Width="316"/>
+        <RadioButton x:Name="dDebt_radio" Content="Debt" HorizontalAlignment="Left" Margin="95,312,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="dLoan_radio" Content="Loan" HorizontalAlignment="Left" Margin="232,312,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="dAdd_btn" Content="Create" HorizontalAlignment="Left" Margin="224,473,0,0" VerticalAlignment="Top" Click="dAdd_btn_Click"/>
+        <Button x:Name="dBack_btn" Content="Back" HorizontalAlignment="Left" Margin="74,473,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>

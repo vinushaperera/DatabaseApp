@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="DatabaseApp.ViewModels.SavingsWithdraw"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DatabaseApp.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="wdWithDep_label" HorizontalAlignment="Left" Margin="28,35,0,0" TextWrapping="Wrap" Text="Withdraw" VerticalAlignment="Top" FontSize="33.333"/>
+        <TextBox x:Name="wAmount_box" HorizontalAlignment="Left" Margin="30,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="338" PlaceholderText="Amount"/>
+        <Button x:ConnectionId='1' x:Name="wWithdraw_btn" Content="Withdraw" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="220,271,0,0"                            />
+        <DatePicker x:Name="wDate_box" HorizontalAlignment="Left" Margin="30,193,0,0" VerticalAlignment="Top" Width="338"/>
+        <Button x:ConnectionId='2' x:Name="wBack_btn" Content="Back" HorizontalAlignment="Left" Margin="81,271,0,0" VerticalAlignment="Top"                        />
+
+    </Grid>
+</Page>
+

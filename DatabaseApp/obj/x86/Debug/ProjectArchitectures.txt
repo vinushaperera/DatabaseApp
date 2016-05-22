@@ -1,0 +1,1 @@
+D:\Coursework\SDGP\DatabaseApp\DatabaseApp\DatabaseApp.csproj;x86

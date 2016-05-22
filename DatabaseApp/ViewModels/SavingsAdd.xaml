@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="DatabaseApp.ViewModels.SavingsAdd"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DatabaseApp.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="sAdd_label" HorizontalAlignment="Left" Margin="24,38,0,0" TextWrapping="Wrap" Text="Add Saving" VerticalAlignment="Top" FontSize="33.333"/>
+        <TextBox x:Name="saName_box" HorizontalAlignment="Left" Margin="24,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="349" PlaceholderText="Savings Name"/>
+        <TextBox x:Name="saAmount_box" HorizontalAlignment="Left" Margin="24,194,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="349" PlaceholderText="Goal" InputScope="Number"/>
+        <TextBox x:Name="saStarting_box" HorizontalAlignment="Left" Margin="24,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="349" PlaceholderText="Starting Amount" InputScope="Number"/>
+        <Button x:Name="saCreate_btn" Content="Create" HorizontalAlignment="Left" Margin="223,364,0,0" VerticalAlignment="Top" Click="saCreate_btn_Click"/>
+        <Button x:Name="saBack_btn" Content="Back" HorizontalAlignment="Left" Margin="67,364,0,0" VerticalAlignment="Top" Click="saBack_btn_Click"/>
+
+    </Grid>
+</Page>

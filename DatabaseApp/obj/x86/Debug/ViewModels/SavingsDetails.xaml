@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="DatabaseApp.ViewModels.SavingsDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DatabaseApp.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="sName_block" HorizontalAlignment="Left" Margin="33,32,0,0" TextWrapping="Wrap" Text="Savings Name" VerticalAlignment="Top" FontSize="33.333"/>
+        <TextBlock x:Name="sAmount_block" HorizontalAlignment="Left" Margin="136,163,0,0" TextWrapping="Wrap" Text="Rs 15,000" VerticalAlignment="Top" FontSize="29.333"/>
+        <TextBlock x:Name="sGoal_block" HorizontalAlignment="Left" Margin="248,260,0,0" TextWrapping="Wrap" Text="Rs 20,000" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="sLeft_block" HorizontalAlignment="Left" Margin="71,260,0,0" TextWrapping="Wrap" Text="Rs 5,000" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="sGoal_label" HorizontalAlignment="Left" Margin="271,231,0,0" TextWrapping="Wrap" Text="Goal" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="sLeft_label" HorizontalAlignment="Left" Margin="62,231,0,0" TextWrapping="Wrap" Text="Remaining" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="sBalance_label" HorizontalAlignment="Left" Margin="172,134,0,0" TextWrapping="Wrap" Text="Saved" VerticalAlignment="Top" FontSize="20"/>
+        <Button x:ConnectionId='1' x:Name="sDeposit_btn" Content="Deposit" HorizontalAlignment="Left" Margin="71,366,0,0" VerticalAlignment="Top"                           />
+        <Button x:ConnectionId='2' x:Name="sWithdraw_btn" Content="Withdraw" HorizontalAlignment="Left" Margin="222,366,0,0" VerticalAlignment="Top"                            />
+        <Button x:ConnectionId='3' x:Name="sTList_btn" Content="Transaction List" HorizontalAlignment="Left" Margin="71,441,0,0" VerticalAlignment="Top" Width="260"                         />
+        <Button x:ConnectionId='4' x:Name="sDel_btn" Content="Delete" HorizontalAlignment="Left" Margin="71,568,0,0" VerticalAlignment="Top"                       />
+        <Button x:ConnectionId='5' x:Name="sEdit_btn" Content="Edit" HorizontalAlignment="Left" Margin="271,28,0,0" VerticalAlignment="Top" Width="109"                        />
+        <Button x:ConnectionId='6' x:Name="sBack_btn" Content="Back" HorizontalAlignment="Left" Margin="223,568,0,0" VerticalAlignment="Top"                        />
+    </Grid>
+</Page>
+
