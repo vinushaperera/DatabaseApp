@@ -336,6 +336,61 @@ namespace DatabaseApp
             return status;
         }
 
+        public static int insertIDs(String incexpID, String otherID)
+        {
+            int status = 0;
+            int number = 0;
+
+            String[] array = otherID.Split(' ');
+
+            if (array[0].Equals("sa"))
+            {
+                number = 3;
+            }
+            else if (array[0].Equals("dl"))
+            {
+                number = 2;
+            }
+            else if (array[0].Equals("st"))
+            {
+                number = 4;
+            }
+
+            try
+            {
+                using (var connection = new SQLitePCL.SQLiteConnection("Storage.db"))
+                {
+                    using (var statement = connection.Prepare(@"INSERT INTO IDTracking (IEID, DLID, SAID, STID)VALUES(?,?,?,?);"))
+                    {
+                        statement.Bind(1, incexpID);
+                        statement.Bind(number, otherID);
+
+                        SQLiteResult s = statement.Step();
+                        statement.Reset();
+                        statement.ClearBindings();
+
+                        if ((s.ToString().Equals("DONE")))
+                        {
+                            Debug.WriteLine("ID insert step done");
+                            status = 1;
+                        }
+                        else
+                        {
+                            Debug.WriteLine("ID insert step failed");
+                            status = 0;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+
+            return status;
+        }
+
         //Receive info
 
         public static ObservableCollection<IncExp> getIncomeExpenseValues()
