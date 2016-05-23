@@ -41,6 +41,7 @@ namespace DatabaseApp
             DatabaseHandler.createDebtLoanTable();
             DatabaseHandler.createSavingsTable();
             DatabaseHandler.createSmallTransactionsTable();
+            DatabaseHandler.createIDTrackingTable();
             //IncomeExpenseController cont = new IncomeExpenseController();
             //Debug.WriteLine(cont.incomeTotal());
             Frame.Navigate(typeof(MainView));

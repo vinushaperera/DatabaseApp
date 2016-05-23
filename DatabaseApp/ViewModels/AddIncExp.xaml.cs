@@ -26,6 +26,7 @@ namespace DatabaseApp.ViewModels
     {
         private bool cond = false;
         private IncExp incexp1 = null;
+        private String updateID = "";
 
         public AddIncExp()
         {
@@ -38,6 +39,7 @@ namespace DatabaseApp.ViewModels
             if (e.Parameter != null)
             {
                 incexp1 = (IncExp)e.Parameter;
+                updateID = incexp1.Id;
                 tName_box.Text = incexp1.Name;
                 tAmount_box.Text = incexp1.Amount.ToString();
 
@@ -135,6 +137,8 @@ namespace DatabaseApp.ViewModels
                 IncomeExpenseController controller = new IncomeExpenseController();
 
                 if (cond) {
+                    incExp.Id = updateID;
+
                     int status = controller.updateTransaction(incExp);
 
                     if(status == 1)
@@ -167,16 +171,8 @@ namespace DatabaseApp.ViewModels
                         await msg.ShowAsync();
                         Frame.Navigate(typeof(MainView));
                     }
-
-                    
                 }
-                
-
-                
             }
-
-            
-            
         }
 
         private void tCancel_btn_Click(object sender, RoutedEventArgs e)

@@ -90,6 +90,21 @@ namespace DatabaseApp
             }
         }
 
+        public static void createIDTrackingTable()
+        {
+            using (var connection = new SQLitePCL.SQLiteConnection("Storage.db"))
+            {
+                using (var statement = connection.Prepare(@"CREATE TABLE IF NOT EXISTS IDTracking (
+                                        IEID NVARCHAR(10),
+                                        DLID NVARCHAR(10),
+                                        SAID NVARCHAR(10),
+                                        STID NVARCHAR(10));"))
+                {
+                    statement.Step();
+                }
+            }
+        }
+
         //Insert info
 
         public static int insertIncome(IncExp incExp)
