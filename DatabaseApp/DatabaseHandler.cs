@@ -515,7 +515,42 @@ namespace DatabaseApp
             }
             return list;
         }
-        
+
+        public static String[] findSpecificID(String id)
+        {
+            String[] idArray = new String[4];
+
+            using (var connection = new SQLitePCL.SQLiteConnection("Storage.db"))
+            {
+                using (var statement = connection.Prepare(@"SELECT * FROM IDTracking WHERE IEID=?;"))
+                {
+                    statement.Bind(1, id);
+                    while (statement.Step() == SQLiteResult.ROW)
+                    {
+                        if(statement[0] != null)
+                        {
+                            idArray[0] = statement[0].ToString();
+                        }
+                        if (statement[1] != null)
+                        {
+                            idArray[1] = statement[1].ToString();
+                        }
+                        if (statement[2] != null)
+                        {
+                            idArray[2] = statement[2].ToString();
+                        }
+                        if (statement[3] != null)
+                        {
+                            idArray[3] = statement[3].ToString();
+                        }
+                    }
+                    statement.Reset();
+                    statement.ClearBindings();
+                }
+            }
+            return idArray;
+        }
+
         public static String getLastID(String table)
         {
             String id = "";
@@ -761,6 +796,51 @@ namespace DatabaseApp
             using (var connection = new SQLitePCL.SQLiteConnection("Storage.db"))
             {
                 using (var statement = connection.Prepare(@"DELETE FROM SmallTransactions WHERE TransactionID=?;"))
+                {
+                    statement.Bind(1, id);
+                    SQLiteResult s = statement.Step();
+
+                    if ((s.ToString().Equals("DONE")))
+                    {
+                        Debug.WriteLine("Step done");
+                        status = 1;
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Step failed");
+                        status = 0;
+                    }
+                }
+            }
+
+            return status;
+        }
+
+        public static int deleteIDTracking(String id)
+        {
+            String[] array = id.Split(' ');
+            String idType;
+            if (array[0].Equals("ie"))
+            {
+                idType = "IEID";
+            }
+            else if (array[0].Equals("sa"))
+            {
+                idType = "SAID";
+            }
+            else if (array[0].Equals("dl"))
+            {
+                idType = "DLID";
+            }
+            else
+            {
+                idType = "STID";
+            }
+
+            int status = 0;
+            using (var connection = new SQLitePCL.SQLiteConnection("Storage.db"))
+            {
+                using (var statement = connection.Prepare(@"DELETE FROM IDTracking WHERE " + idType + "=?;"))
                 {
                     statement.Bind(1, id);
                     SQLiteResult s = statement.Step();

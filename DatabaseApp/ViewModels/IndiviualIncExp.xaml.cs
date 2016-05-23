@@ -74,27 +74,51 @@ namespace DatabaseApp.ViewModels
             Frame.Navigate(typeof(MainView));
         }
 
-        private void detailsEdit_btn_Click(object sender, RoutedEventArgs e)
+        private async void detailsEdit_btn_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(AddIncExp), incexp);
+            CommonController controller = new CommonController();
+            int status = controller.idCheck(incexp.Id);
+
+            if(status == 1)
+            {
+                MessageDialog msg = new MessageDialog("You cannot edit this transaction here!");
+                await msg.ShowAsync();
+            }
+            else
+            {
+                Frame.Navigate(typeof(AddIncExp), incexp);
+            }
+            
         }
 
         private async void detailsDelete_btn_Click(object sender, RoutedEventArgs e)
         {
-            IncomeExpenseController controller = new IncomeExpenseController();
-            int status = controller.deleteIncome(incexp);
+            CommonController controller1 = new CommonController();
+            int status1 = controller1.idCheck(incexp.Id);
 
-            if(status == 1)
+            if (status1 == 1)
             {
-                MessageDialog message = new MessageDialog("Successfully Deleted!");
-                await message.ShowAsync();
-                Frame.Navigate(typeof(IncExpTransactions));
+                MessageDialog msg = new MessageDialog("You cannot delete this transaction here!");
+                await msg.ShowAsync();
             }
             else
             {
-                MessageDialog message = new MessageDialog("Failed to delete!");
-                await message.ShowAsync();
-                Frame.Navigate(typeof(IncExpTransactions));
+
+                IncomeExpenseController controller = new IncomeExpenseController();
+                int status = controller.deleteIncome(incexp);
+
+                if (status == 1)
+                {
+                    MessageDialog message = new MessageDialog("Successfully Deleted!");
+                    await message.ShowAsync();
+                    Frame.Navigate(typeof(IncExpTransactions));
+                }
+                else
+                {
+                    MessageDialog message = new MessageDialog("Failed to delete!");
+                    await message.ShowAsync();
+                    Frame.Navigate(typeof(IncExpTransactions));
+                }
             }
             
         }

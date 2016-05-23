@@ -48,5 +48,19 @@ namespace DatabaseApp.Controllers
             return idNew;
         }
 
+        public int idCheck(String id)
+        {
+            String[] array = DatabaseHandler.findSpecificID(id);
+
+            if(array[0] != null)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+            
+        }
     }
 }
