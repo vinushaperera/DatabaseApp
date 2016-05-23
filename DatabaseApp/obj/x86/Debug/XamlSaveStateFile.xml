@@ -1,6 +1,6 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="d:\coursework\sdgp\databaseapp\databaseapp\obj\x86\debug\intermediatexaml\databaseapp.exe" HashGuid="205c094a-28f8-cd33-bc91-386615e80fd5" />
+    <LocalAssembly PathName="d:\coursework\sdgp\databaseapp\databaseapp\obj\x86\debug\intermediatexaml\databaseapp.exe" HashGuid="ec6fb642-8045-2a5a-f874-5775c3b3ec16" />
     <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windowsphoneapp\v8.1\extensionsdks\microsoft.vclibs\12.0\references\commonconfiguration\neutral\platform.winmd" HashGuid="58b6b6d1-928e-9908-9804-eb460e5e101b" />
     <ReferenceAssembly PathName="d:\coursework\sdgp\databaseapp\packages\sqlitepcl.3.8.7.2\lib\wpa81\sqlitepcl.dll" HashGuid="a405761a-bd1d-dc16-54b5-36df2e9981c5" />
   </ReferenceAssemblyList>

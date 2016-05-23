@@ -36,7 +36,6 @@ namespace DatabaseApp
         private void button_Click(object sender, RoutedEventArgs e)
         {
             //DatabaseHandler.dropIncomeExpenseTable();
-            //DatabaseHandler.dropExpenseTable();
             DatabaseHandler.createIncomeExpenseTable();
             DatabaseHandler.createDebtLoanTable();
             DatabaseHandler.createSavingsTable();

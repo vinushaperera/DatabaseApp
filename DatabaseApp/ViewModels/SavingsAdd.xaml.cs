@@ -23,6 +23,7 @@ namespace DatabaseApp.ViewModels
     public sealed partial class SavingsAdd : Page
     {
         bool update = false;
+        String updateID;
         public SavingsAdd()
         {
             this.InitializeComponent();
@@ -39,6 +40,7 @@ namespace DatabaseApp.ViewModels
                 saStarting_box.Text = saving.Initial.ToString();
                 saCreate_btn.Content = "Update"; 
                 update = true;
+                updateID = saving.Id;
             }
 
             
@@ -81,13 +83,25 @@ namespace DatabaseApp.ViewModels
             }
             else
             {
-                Savings savings = new Savings(name, amount, initial, "SID123", "AC_ID123");
+                CommonController contCom = new CommonController();
+                String sID = contCom.idGenerator("sa");
+                String ieID = contCom.idGenerator("ie");
+
+                IncExp incexp = new IncExp(name + "[Savings]", initial, "default_null", "default_null", "Savings plan", ieID, "default_null", false, "AC_ID123"); 
+                IncomeExpenseController ieCont = new IncomeExpenseController();
+                
+                Savings savings = new Savings(name, amount, initial, sID, "AC_ID123");
                 SavingsController controller = new SavingsController();
 
                 if (update)
                 {
+                    savings.Id = updateID;                    
+                    String ieIDUpdate = contCom.idOtherCheck(updateID, "SAID");
+                    incexp.Id = ieIDUpdate;
                     int status = controller.updateSaving(savings);
-                    if (status == 1)
+                    int status2 = ieCont.updateTransaction(incexp);
+
+                    if (status == 1 && status2 == 1)
                     {
                         MessageDialog msg = new MessageDialog("Updated Successfully!");
                         await msg.ShowAsync();
@@ -101,8 +115,11 @@ namespace DatabaseApp.ViewModels
                 }
                 else
                 {
-                    int status = controller.addSavings(savings);
-                    if (status == 1)
+                    int status = ieCont.addTransaction(incexp);
+                    int status1 = controller.addSavings(savings);
+                    int status2 = contCom.insertIDs(incexp.Id, savings.Id);
+
+                    if (status == 1 && status1 == 1 && status2 == 1)
                     {
                         MessageDialog msg = new MessageDialog("Added Successfully!");
                         await msg.ShowAsync();

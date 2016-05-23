@@ -9,6 +9,11 @@ namespace DatabaseApp.Controllers
 {
     public class CommonController
     {
+        public int insertIDs(String id, String otherID)
+        {
+            return DatabaseHandler.insertIDs(id, otherID);
+        }
+
         public String idGenerator(String prefix) {
 
             String id = "";
@@ -61,6 +66,21 @@ namespace DatabaseApp.Controllers
                 return 0;
             }
             
+        }
+
+        public String idOtherCheck(String otherId, String idType)
+        {
+            String ieId = DatabaseHandler.findIEID(otherId, idType);
+
+            if (ieId != null)
+            {
+                return ieId;
+            }
+            else
+            {
+                return null;
+            }
+
         }
     }
 }

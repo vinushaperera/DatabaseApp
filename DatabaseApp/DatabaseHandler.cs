@@ -551,6 +551,30 @@ namespace DatabaseApp
             return idArray;
         }
 
+        public static String findIEID(String otherId, String idType)
+        {
+            
+            String id = null;
+
+            using (var connection = new SQLitePCL.SQLiteConnection("Storage.db"))
+            {
+                using (var statement = connection.Prepare(@"SELECT * FROM IDTracking WHERE " + idType + "=?;"))
+                {
+                    statement.Bind(1, otherId);
+                    while (statement.Step() == SQLiteResult.ROW)
+                    {
+                        if (statement[0] != null)
+                        {
+                            id = statement[0].ToString();
+                        }
+                    }
+                    statement.Reset();
+                    statement.ClearBindings();
+                }
+            }
+            return id;
+        }
+
         public static String getLastID(String table)
         {
             String id = "";
