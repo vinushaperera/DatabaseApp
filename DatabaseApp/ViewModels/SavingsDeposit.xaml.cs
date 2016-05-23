@@ -2,6 +2,7 @@
 using DatabaseApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -20,9 +21,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace DatabaseApp.ViewModels
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+    
     public sealed partial class SavingsDeposit : Page
     {
         private Savings savings = new Savings();
@@ -54,11 +53,20 @@ namespace DatabaseApp.ViewModels
             }
             else
             {
-                SmallTransactions sTrans = new SmallTransactions(amount, "", 'd', "SID123", "TransID123", date, "ACID123");
+                CommonController comCont = new CommonController();
+                IncomeExpenseController ieCont = new IncomeExpenseController();
+
+                String ieID = comCont.idGenerator("ie");
+                String stID = comCont.idGenerator("st");
+                
+                IncExp incexp = new IncExp(savings.Name + "[Transaction]", amount, "default_null", "default_null", "Saving transaction - depost", ieID, "default_null", false, "AC_ID123");
+                SmallTransactions sTrans = new SmallTransactions(amount, "", 'd', savings.Id, stID, date, "AC_ID123");
                 SavingsController controller = new SavingsController();
                 int status = controller.addDepositWithdraw(sTrans);
+                int status2 = ieCont.addTransaction(incexp);
+                int status3 = comCont.insertMoreIDs(ieID, savings.Id, stID);
 
-                if (status == 1)
+                if (status == 1 && status2 == 1 && status3 == 1)
                 {
                     MessageDialog msg = new MessageDialog("Successfully deposited!");
                     await msg.ShowAsync();

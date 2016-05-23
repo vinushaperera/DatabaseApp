@@ -14,6 +14,11 @@ namespace DatabaseApp.Controllers
             return DatabaseHandler.insertIDs(id, otherID);
         }
 
+        public int insertMoreIDs(String id, String saID, String stID)
+        {
+            return DatabaseHandler.insertMoreIDs(id, saID, stID);
+        }
+
         public String idGenerator(String prefix) {
 
             String id = "";

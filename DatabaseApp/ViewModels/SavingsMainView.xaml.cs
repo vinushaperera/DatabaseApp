@@ -33,7 +33,6 @@ namespace DatabaseApp.ViewModels
         {
             SavingsController controller = new SavingsController();
             ObservableCollection<Savings> list = controller.allSavings();
-            Debug.WriteLine(list.Count);
             listView.ItemsSource =  list;
         }
 

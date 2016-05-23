@@ -2,6 +2,7 @@
 using DatabaseApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -43,11 +44,21 @@ namespace DatabaseApp.ViewModels
             double amount = Convert.ToDouble(wAmount_box.Text);
             String date = wDate_box.Date.ToString();
 
-            SmallTransactions sTrans = new SmallTransactions(amount, "", 'w', "SID123", "TransID123", date, "ACID123");
-            SavingsController controller = new SavingsController();
-            int status = controller.addDepositWithdraw(sTrans);
+            IncomeExpenseController ieCont = new IncomeExpenseController();
+            CommonController comCont = new CommonController();
 
-            if (status == 1)
+            String wID = comCont.idGenerator("st");
+            String ieID = comCont.idGenerator("ie");
+            
+            IncExp incexp = new IncExp(savings.Name + "[Transaction]", amount, "default_null", "default_null", "Saving transaction - withdraw", ieID, "default_null", true, "AC_ID123");
+            SmallTransactions sTrans = new SmallTransactions(amount, "", 'w', savings.Id, wID, date, "AC_ID123");
+            SavingsController controller = new SavingsController();
+
+            int status = controller.addDepositWithdraw(sTrans);
+            int status2 = ieCont.addTransaction(incexp);
+            int status3 = comCont.insertMoreIDs(ieID, savings.Id, wID);
+
+            if (status == 1 && status2 == 1 && status3 == 1)
             {
                 MessageDialog msg = new MessageDialog("Successfully withdrawed!");
                 await msg.ShowAsync();

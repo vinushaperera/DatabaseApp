@@ -44,7 +44,6 @@ namespace DatabaseApp.ViewModels
             
 
             double amount = controller.savingsCurrentAmount(savings);
-            Debug.WriteLine(amount);
 
             sAmount_block.Text = "Rs." + amount.ToString() + ".00";
             sLeft_block.Text = "Rs." + (goal - amount).ToString() + ".00";

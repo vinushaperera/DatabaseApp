@@ -391,6 +391,46 @@ namespace DatabaseApp
             return status;
         }
 
+        public static int insertMoreIDs(String incexpID, String saID, String stID)
+        {
+            int status = 0;
+
+            try
+            {
+                using (var connection = new SQLitePCL.SQLiteConnection("Storage.db"))
+                {
+                    using (var statement = connection.Prepare(@"INSERT INTO IDTracking (IEID, DLID, SAID, STID)VALUES(?,?,?,?);"))
+                    {
+                        statement.Bind(1, incexpID);
+                        statement.Bind(3, saID);
+                        statement.Bind(4, stID);
+
+                        SQLiteResult s = statement.Step();
+                        statement.Reset();
+                        statement.ClearBindings();
+
+                        if ((s.ToString().Equals("DONE")))
+                        {
+                            Debug.WriteLine("ID insert step done");
+                            status = 1;
+                        }
+                        else
+                        {
+                            Debug.WriteLine("ID insert step failed");
+                            status = 0;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+
+            return status;
+        }
+
         //Receive info
 
         public static ObservableCollection<IncExp> getIncomeExpenseValues()
@@ -578,10 +618,16 @@ namespace DatabaseApp
         public static String getLastID(String table)
         {
             String id = "";
+            String text = "ID";
+
+            if (table.Equals("SmallTransactions"))
+            {
+                text = "TransactionID";
+            }
 
             using (var connection = new SQLitePCL.SQLiteConnection("Storage.db"))
             {
-                using (var statement = connection.Prepare(@"SELECT * FROM " + table + " ORDER BY ID DESC LIMIT 1;"))
+                using (var statement = connection.Prepare(@"SELECT * FROM " + table + " ORDER BY " + text + " DESC LIMIT 1;"))
                 {
                     if (table.Equals("IncExp"))
                     {
@@ -608,7 +654,7 @@ namespace DatabaseApp
                     {
                         while (statement.Step() == SQLiteResult.ROW)
                         {
-                            id = statement[3].ToString();
+                            id = statement[4].ToString();
                         }
                     }
                 }
