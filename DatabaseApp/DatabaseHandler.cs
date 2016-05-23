@@ -454,10 +454,33 @@ namespace DatabaseApp
             {
                 using (var statement = connection.Prepare(@"SELECT * FROM " + table + " ORDER BY ID DESC LIMIT 1;"))
                 {
-
-                    while (statement.Step() == SQLiteResult.ROW)
+                    if (table.Equals("IncExp"))
                     {
-                        id = statement[5].ToString();
+                        while (statement.Step() == SQLiteResult.ROW)
+                        {
+                            id = statement[5].ToString();
+                        }
+                    }
+                    else if (table.Equals("Savings"))
+                    {
+                        while (statement.Step() == SQLiteResult.ROW)
+                        {
+                            id = statement[3].ToString();
+                        }
+                    }
+                    else if (table.Equals("DebtLoan"))
+                    {
+                        while (statement.Step() == SQLiteResult.ROW)
+                        {
+                            id = statement[3].ToString();
+                        }
+                    }
+                    else if (table.Equals("SmallTransactions"))
+                    {
+                        while (statement.Step() == SQLiteResult.ROW)
+                        {
+                            id = statement[3].ToString();
+                        }
                     }
                 }
             }
