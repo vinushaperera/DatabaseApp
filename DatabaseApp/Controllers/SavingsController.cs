@@ -50,10 +50,7 @@ namespace DatabaseApp.Controllers
             return balance;
         }
 
-        public int deleteTransaction(String id)
-        {
-            return DatabaseHandler.deleteSmallTrans(id);           
-        }
+        
 
         public ObservableCollection<Savings> allSavings()
         {
@@ -76,6 +73,14 @@ namespace DatabaseApp.Controllers
             return listNew;
         }
 
+        //update data
+        public int updateSaving(Savings saving)
+        {
+            return DatabaseHandler.updateSaving(saving);
+        }
+
+
+        //delete data
         public int deleteSaving(String id)
         {
             return DatabaseHandler.deleteSaving(id);     
@@ -85,9 +90,11 @@ namespace DatabaseApp.Controllers
             return DatabaseHandler.deleteSavingsTransactions(id);
         }
 
-        public int updateSaving(Savings saving)
+        public int deleteTransaction(String id)
         {
-            return DatabaseHandler.updateSaving(saving);
+            return DatabaseHandler.deleteSmallTrans(id);
         }
+
+        
     }
 }

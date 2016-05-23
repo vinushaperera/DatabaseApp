@@ -128,7 +128,10 @@ namespace DatabaseApp.ViewModels
                 {
                     incExpCond = true;
                 }
-                IncExp incExp = new IncExp(name, amount, payer, category, desc, "ID123", date, incExpCond, "AC_ID123");
+
+                CommonController comCont = new CommonController();
+                String id = comCont.idGenerator("ie");
+                IncExp incExp = new IncExp(name, amount, payer, category, desc, id, date, incExpCond, "AC_ID123");
                 IncomeExpenseController controller = new IncomeExpenseController();
 
                 if (cond) {

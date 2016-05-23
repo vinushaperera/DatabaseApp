@@ -393,6 +393,7 @@ namespace DatabaseApp
             }
             return list;
         }
+
         public static ObservableCollection<Savings> getSavingsValues()
         {
             ObservableCollection<Savings> list = new ObservableCollection<Savings>();
@@ -417,6 +418,7 @@ namespace DatabaseApp
             }
             return list;
         }
+
         public static ObservableCollection<SmallTransactions> getSmallTransactionValues()
         {
             ObservableCollection<SmallTransactions> list = new ObservableCollection<SmallTransactions>();
@@ -442,6 +444,24 @@ namespace DatabaseApp
                 }
             }
             return list;
+        }
+        
+        public static String getLastID(String table)
+        {
+            String id = "";
+
+            using (var connection = new SQLitePCL.SQLiteConnection("Storage.db"))
+            {
+                using (var statement = connection.Prepare(@"SELECT * FROM " + table + " ORDER BY ID DESC LIMIT 1;"))
+                {
+
+                    while (statement.Step() == SQLiteResult.ROW)
+                    {
+                        id = statement[5].ToString();
+                    }
+                }
+            }
+            return id;
         }
 
         //Update info
@@ -615,6 +635,7 @@ namespace DatabaseApp
 
             return status;
         }
+
         public static int deleteSavingsTransactions(String id)
         {
             int status = 0;
