@@ -37,6 +37,11 @@ namespace DatabaseApp.Models
             this.accID = accID;
         }
 
+        public IncExp(String id)
+        {
+            this.id = id;
+        }
+
         public string Name
         {
             get

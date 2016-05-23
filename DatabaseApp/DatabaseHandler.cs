@@ -662,6 +662,26 @@ namespace DatabaseApp
             return id;
         }
 
+        public static ObservableCollection<String> getAllIEIDs(String id)
+        {
+            ObservableCollection<String> list = new ObservableCollection<String>();
+
+            using (var connection = new SQLitePCL.SQLiteConnection("Storage.db"))
+            {
+                using (var statement = connection.Prepare(@"SELECT * FROM IDTracking WHERE SAID=?;"))
+                {
+                    statement.Bind(1, id);
+                    while (statement.Step() == SQLiteResult.ROW)
+                    {
+                        list.Add(statement[0].ToString());
+                    }
+                    statement.Reset();
+                    statement.ClearBindings();
+                }
+            }
+            return list;
+        }
+
         //Update info
 
         public static int updateIncome(IncExp incExp) {

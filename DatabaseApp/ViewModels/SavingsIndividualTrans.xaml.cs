@@ -45,13 +45,19 @@ namespace DatabaseApp.ViewModels
 
         private async void indiTransDeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            SavingsController controller = new SavingsController();
-            int status = controller.deleteTransaction(st.Transaction_id);
+            CommonController comCont = new CommonController();
+            String ieID = comCont.idOtherCheck(st.Transaction_id, "STID");
 
-            if (status == 1) {
+            SavingsController controller = new SavingsController();
+            IncomeExpenseController ieCont = new IncomeExpenseController();
+
+            int status = controller.deleteTransaction(st.Transaction_id);
+            int status2 = ieCont.deleteIncome(new IncExp(ieID));
+            int status3 = comCont.deleteIDTrackRow(st.Transaction_id);
+
+            if (status == 1 && status2 == 1 && status3 == 1) {
                 MessageDialog message = new MessageDialog("Successfully deleted!");
                 await message.ShowAsync();
-                                
             }
             else
             {

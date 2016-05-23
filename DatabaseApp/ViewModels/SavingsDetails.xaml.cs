@@ -85,14 +85,19 @@ namespace DatabaseApp.ViewModels
 
         private async void sDel_btn_Click(object sender, RoutedEventArgs e)
         {
+            CommonController comCont = new CommonController();
+            int status = comCont.deleteAllIEIDs(savings.Id);
+
+            int status1 = comCont.deleteIDTrackRow(savings.Id);
+
             SavingsController controller = new SavingsController();
-            int status1 = controller.deleteSavingTransactions(savings.Id);
+            int status2 = controller.deleteSavingTransactions(savings.Id);
 
-            if(status1 == 1)
+            if(status == 1 && status1 == 1 && status2 == 1)
             {
-                int status2 = controller.deleteSaving(savings.Id);
+                int status3 = controller.deleteSaving(savings.Id);
 
-                if (status2 == 1)
+                if (status3 == 1)
                 {
                     MessageDialog msg = new MessageDialog("Successfully deleted!");
                     await msg.ShowAsync();

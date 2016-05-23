@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using DatabaseApp.Models;
 
 namespace DatabaseApp.Controllers
 {
@@ -86,6 +88,24 @@ namespace DatabaseApp.Controllers
                 return null;
             }
 
+        }
+
+        public int deleteIDTrackRow(String id)
+        {
+            return DatabaseHandler.deleteIDTracking(id);
+        }
+
+        public int deleteAllIEIDs(String id)
+        {
+            ObservableCollection<String> list = DatabaseHandler.getAllIEIDs(id);
+            IncomeExpenseController ieCont = new IncomeExpenseController();
+            int status = 0;
+            foreach (String ieID in list)
+            {
+                status = ieCont.deleteIncome(new IncExp(ieID));
+            }
+
+            return status;
         }
     }
 }
