@@ -10,7 +10,7 @@
 
     <Grid>
         <TextBlock x:Name="wdWithDep_label" HorizontalAlignment="Left" Margin="28,35,0,0" TextWrapping="Wrap" Text="Withdraw" VerticalAlignment="Top" FontSize="33.333"/>
-        <TextBox x:Name="wAmount_box" HorizontalAlignment="Left" Margin="30,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="338" PlaceholderText="Amount"/>
+        <TextBox x:Name="wAmount_box" HorizontalAlignment="Left" Margin="30,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="338" PlaceholderText="Amount" InputScope="Number"/>
         <Button x:Name="wWithdraw_btn" Content="Withdraw" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="220,271,0,0" Click="wWithdraw_btn_Click"/>
         <DatePicker x:Name="wDate_box" HorizontalAlignment="Left" Margin="30,193,0,0" VerticalAlignment="Top" Width="338"/>
         <Button x:Name="wBack_btn" Content="Back" HorizontalAlignment="Left" Margin="81,271,0,0" VerticalAlignment="Top" Click="wBack_btn_Click"/>

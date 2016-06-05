@@ -52,6 +52,15 @@ namespace DatabaseApp.ViewModels
             {
                 savingsComplete = true;
             }
+
+            if(amount == 0)
+            {
+                sWithdraw_btn.IsEnabled = false;
+            }
+            else
+            {
+                sWithdraw_btn.IsEnabled = true;
+            }
         }
 
         private async void sDeposit_btn_Click(object sender, RoutedEventArgs e)

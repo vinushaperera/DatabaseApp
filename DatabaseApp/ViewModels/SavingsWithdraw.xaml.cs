@@ -41,35 +41,44 @@ namespace DatabaseApp.ViewModels
 
         private async void wWithdraw_btn_Click(object sender, RoutedEventArgs e)
         {
-            double amount = Convert.ToDouble(wAmount_box.Text);
-            String date = wDate_box.Date.ToString();
-
-            IncomeExpenseController ieCont = new IncomeExpenseController();
-            CommonController comCont = new CommonController();
-
-            String wID = comCont.idGenerator("st");
-            String ieID = comCont.idGenerator("ie");
-            
-            IncExp incexp = new IncExp(savings.Name + "[Transaction]", amount, "default_null", "default_null", "Saving transaction - withdraw", ieID, "default_null", true, "AC_ID123");
-            SmallTransactions sTrans = new SmallTransactions(amount, "", 'w', savings.Id, wID, date, "AC_ID123");
-            SavingsController controller = new SavingsController();
-
-            int status = controller.addDepositWithdraw(sTrans);
-            int status2 = ieCont.addTransaction(incexp);
-            int status3 = comCont.insertMoreIDs(ieID, savings.Id, wID);
-
-            if (status == 1 && status2 == 1 && status3 == 1)
+            SavingsController cont = new SavingsController();
+            double currentAmount = cont.savingsCurrentAmount(savings);
+            if (Convert.ToDouble(wAmount_box.Text) > currentAmount)
             {
-                MessageDialog msg = new MessageDialog("Successfully withdrawed!");
+                MessageDialog msg = new MessageDialog("You don't have that much in your savings");
                 await msg.ShowAsync();
-                Frame.Navigate(typeof(SavingsDetails), savings);
             }
             else
             {
-                MessageDialog msg = new MessageDialog("Failed to withdraw!");
-                await msg.ShowAsync();
-            }
+                double amount = Convert.ToDouble(wAmount_box.Text);
+                String date = wDate_box.Date.ToString();
 
+                IncomeExpenseController ieCont = new IncomeExpenseController();
+                CommonController comCont = new CommonController();
+
+                String wID = comCont.idGenerator("st");
+                String ieID = comCont.idGenerator("ie");
+
+                IncExp incexp = new IncExp(savings.Name + "[Transaction]", amount, "default_null", "default_null", "Saving transaction - withdraw", ieID, "default_null", true, "AC_ID123");
+                SmallTransactions sTrans = new SmallTransactions(amount, "", 'w', savings.Id, wID, date, "AC_ID123");
+                SavingsController controller = new SavingsController();
+
+                int status = controller.addDepositWithdraw(sTrans);
+                int status2 = ieCont.addTransaction(incexp);
+                int status3 = comCont.insertMoreIDs(ieID, savings.Id, wID);
+
+                if (status == 1 && status2 == 1 && status3 == 1)
+                {
+                    MessageDialog msg = new MessageDialog("Successfully withdrawed!");
+                    await msg.ShowAsync();
+                    Frame.Navigate(typeof(SavingsDetails), savings);
+                }
+                else
+                {
+                    MessageDialog msg = new MessageDialog("Failed to withdraw!");
+                    await msg.ShowAsync();
+                }
+            }
         }
     }
 }
