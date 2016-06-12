@@ -12,6 +12,6 @@
         <Button x:Name="dBack_btn" Content="Back" HorizontalAlignment="Left" Margin="143,573,0,0" VerticalAlignment="Top" Click="button_Click"/>
         <TextBlock x:Name="dMainLabel" HorizontalAlignment="Left" Margin="27,24,0,0" TextWrapping="Wrap" Text="Debts" VerticalAlignment="Top" FontSize="33.333"/>
         <ListView x:Name="listView" HorizontalAlignment="Left" Height="492" Margin="10,74,0,0" VerticalAlignment="Top" Width="380" ItemsSource="{Binding}" IsItemClickEnabled="True" ItemClick="OnItemClickHandlerDebts"/>
-        <Button x:Name="addDebtLoanBtn" Content="New" HorizontalAlignment="Left" Margin="265,16,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="addDebtLoanBtn" Content="New" HorizontalAlignment="Left" Margin="265,16,0,0" VerticalAlignment="Top" Click="addDebtLoanBtn_Click"/>
     </Grid>
 </Page>

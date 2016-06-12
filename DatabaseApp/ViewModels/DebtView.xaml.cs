@@ -23,21 +23,18 @@ namespace DatabaseApp.ViewModels
 {
    
     public sealed partial class Debts : Page
-    {
-        private ObservableCollection<DebtLoan> list = new ObservableCollection<DebtLoan>();
- 
+    { 
         public Debts()
         {
-            this.InitializeComponent();
-            
-
-
+            this.InitializeComponent();   
         }
 
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+            DebtLoanController cont = new DebtLoanController();
+            ObservableCollection<DebtLoan> list = cont.getAllDebts();
+            listView.ItemsSource = list;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -48,6 +45,11 @@ namespace DatabaseApp.ViewModels
         private void OnItemClickHandlerDebts(object sender, ItemClickEventArgs e)
         {
             Frame.Navigate(typeof(IndiviualIncExp), e.ClickedItem);
+        }
+
+        private void addDebtLoanBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(DebtAddView));
         }
     }
 }

@@ -19,13 +19,39 @@ namespace DatabaseApp.Controllers
             DatabaseHandler.insertSmallTransactions(sTrans);
         }
 
-        public ObservableCollection<DebtLoan> debtLoan()
+        public ObservableCollection<DebtLoan> getAllDebts()
         {
             ObservableCollection<DebtLoan> list = new ObservableCollection<DebtLoan>();
             list = DatabaseHandler.getDebtLoanValues();
 
-            
-            return list;
+            ObservableCollection<DebtLoan> debtsList = new ObservableCollection<DebtLoan>();
+
+            foreach(DebtLoan debt in list)
+            {
+                if(debt.Debt)
+                {
+                    debtsList.Add(debt);
+                }
+            }
+
+            return debtsList;
+        }
+        public ObservableCollection<DebtLoan> getAllLoans()
+        {
+            ObservableCollection<DebtLoan> list = new ObservableCollection<DebtLoan>();
+            list = DatabaseHandler.getDebtLoanValues();
+
+            ObservableCollection<DebtLoan> loanList = new ObservableCollection<DebtLoan>();
+
+            foreach (DebtLoan loan in list)
+            {
+                if (!(loan.Debt))
+                {
+                    loanList.Add(loan);
+                }
+            }
+
+            return loanList;
         }
     }
 }
